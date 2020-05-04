@@ -58,10 +58,10 @@ class Blockchain(object):
         # create Genesis Block on the chain of Blocks
         self.chain = [Block(self.index, 'Genesis Block', '0'*64, self.difficulty)]
 
-    def addBlock(self,newBlockData):
+    def addBlock(self,transaction):
         """Add a new block to the Blockchain"""
         self.index += 1
-        newBlock = Block(self.index, newBlockData, self.getLastBlock().hash, self.difficulty)
+        newBlock = Block(self.index, transaction, self.getLastBlock().hash, self.difficulty)
         self.chain.append(newBlock)
 
     def getLastBlock(self):
